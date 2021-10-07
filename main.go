@@ -14,9 +14,12 @@ type EventFunc func(context.Context, fsnotify.Event)
 type ErrorFunc func(context.Context, error)
 
 type Watcher struct {
+    // in
 	path   string
 	notify *fsnotify.Watcher
 	ctx    context.Context
+
+	Recursive bool
 
 	OnCreate EventFunc
 	OnWrite  EventFunc
